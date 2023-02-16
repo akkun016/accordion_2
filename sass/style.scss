@@ -1,0 +1,193 @@
+@charset 'utf-8';
+@import "reset";
+
+$line-color: rgb(218, 216, 216);
+$blue-color: rgb(31, 134, 236);
+$font-color: rgb(33, 33, 33);
+
+body {
+  background-color: #fff;
+}
+
+.wrapper {
+  padding: 0 7%;
+}
+
+#site-nav {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(239, 243, 244);
+  .site-nav-inner {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 80px 0;
+    @mixin site-block {
+    }
+    .n-menu {
+      width: 37.5%;
+      border-left: solid 1px $line-color;
+      padding: 0 38px;
+      &--short {
+        width: 25%;
+      }
+      &:last-child {
+        border-right: solid 1px $line-color;
+      }
+      &__logo {
+        margin-bottom: 20px;
+        a {
+          img {
+            width: 100%;
+            height: 40px;
+          }
+        }
+      }
+      &__small-lists {
+        padding: 20px 0;
+        border-top: solid 1px $line-color;
+        border-bottom: solid 1px $line-color;
+        font-size: 0.75rem;
+        li {
+          margin-bottom: 15px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          a {
+            color: rgb(85, 85, 85);
+            text-decoration: none;
+          }
+        }
+      }
+      &__lists {
+        list-style: none;
+        .n-list {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 54px;
+          border-bottom: solid 1px $line-color;
+          transition: .3s;
+          &:hover {
+            background-color: rgb(230, 238, 239);
+          }
+          &__link {
+            display: block;
+            width: 100%;
+            line-height: 54px;
+            font-size: 0.875rem;
+            color: $font-color;
+            text-decoration: none;
+            // 青い丸のやつ
+            span {
+              display: inline-block;
+              content: "";
+              width: 17px;
+              height: 17px;
+              background-color: $blue-color;
+              margin-right: 10px;
+              border-radius: 50%;
+              transform: translateY(12%);
+              position: relative;
+              z-index: 1;
+              &::before {
+                display: inline-block;
+                content: "";
+                width: 8px;
+                height: 8px;
+                background: url("../img/ifn0760.svg") no-repeat center/contain;
+                position: absolute;
+                top: 4.5px;
+                left: 4.5px;
+                z-index: 2;
+              }
+            }
+          }
+          &__open {
+            display: block;
+            width: 40px;
+            height: 100%;
+            cursor: pointer;
+            &::before {
+              display: block;
+              content: "";
+              width: 1px;
+              height: 30px;
+              background-color: $line-color;
+              margin-top: 12px;
+            }
+            span {
+              display: block;
+              content: "";
+              width: 12px;
+              height: 2px;
+              background-color: $blue-color;
+              &.active {
+                background-color: black;
+              }
+              &:first-child {
+                transform: translate(15px,-15.5px);
+                &.active {
+                  transform: translate(15px,-15.5px) rotate(45deg);
+                }
+              }
+              &:last-child {
+                transform: translate(15px,-17.5px) rotate(90deg);
+                &.active {
+                  transform: translate(15px,-17.5px) rotate(-45deg);
+                }
+              }
+            }
+          }
+        }
+        .n-open-wrap {
+          display: none;
+          .n-open-lists {
+            background-color: rgb(229, 233, 238);
+            padding: 25px;
+            border-bottom: solid 1px $line-color;
+            opacity: 0;
+            transition: .3s;
+            list-style: none;
+            .n-open-list {
+              margin-top: 20px;
+              &:first-child {
+                margin-top: 0;
+              }
+              a {
+                color: rgb(100, 100, 100);
+                text-decoration: none;
+                font-size: 0.8rem;
+                transition: .3s;
+                &:hover {
+                  color: $blue-color;
+                }
+              }
+              .n-small-open-lists {
+                list-style: none;
+                border-left: solid 1px $line-color;
+                .n-small-open-list {
+                  margin: 15px 0 0 10px;
+                  transition: .3s;
+                  a {
+                    font-size: 0.7rem;
+                    color: rgb(116, 115, 115);
+                    text-decoration: none;
+                  }
+                  &:hover {
+                    color: $blue-color;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  height: 180px;
+  background-color: #fff;
+}
